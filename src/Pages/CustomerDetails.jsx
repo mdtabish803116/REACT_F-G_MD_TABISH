@@ -4,7 +4,7 @@ import "../Styles/CustomerDetails.css";
 
 function CustomerDetails({props}) {
 
-
+   
   return (
     <div className = "customerContainer">
        <div>

@@ -21,9 +21,10 @@
 }
 
 .table{
-    border: 1px solid #DDDDDD;
+    border: 1px solid #a2a2a2;
     width: 100%;
     text-align: center;
+    border-collapse: collapse;
 }
 
 .table .withDoubArrowIcon{
@@ -32,18 +33,19 @@
     gap: 2px;
 }
 
-.table tr {
-    border-bottom: 1px solid #DDDDDD;
+.table tbody tr {
     background-color: white;
 }
 
 .table tr th , .table tr td {
     padding: 0px 5px ;
     height: 38px;
+    border: 1px solid #b3b3b3;
 }
 
+
 .table thead tr{
-    background-color: violet;
+    background-color: rgb(183, 143, 183);
 }
 
 

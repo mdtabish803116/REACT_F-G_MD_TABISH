@@ -47,6 +47,13 @@ function FeeedbackForm() {
         setCustomerNameError(false)
         setMobileError(false)
         setEmailError(false)
+
+
+        if (!validateEmail(customerEmail)){
+          alert("Please Enter valid email")
+        }else if(!validatePhoneNumber(customerPhone)){
+          alert("Please Enter valid Phone number")
+        }else {  
           const payload = {
             customerName,
             customerPhone,
@@ -56,8 +63,21 @@ function FeeedbackForm() {
           let customerData = JSON.parse(localStorage.getItem("customerData")) || []
           localStorage.setItem("customerData" , JSON.stringify([...customerData , payload]))
           navigate("/success")
+         }
        }
     }
+
+
+    function validateEmail(email) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+    }
+    
+    function validatePhoneNumber(phoneNumber) {
+      const phoneRegex = /^\+?(\d{1,3})?[-. ]?\(?(\d{3})\)?[-. ]?(\d{3})[-. ]?(\d{4})$/;
+      return phoneRegex.test(phoneNumber);
+    }
+
 
   return (
     <div className = "feedbackContainer">
