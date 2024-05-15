@@ -22,7 +22,7 @@
 
 .table{
     border: 1px solid #a2a2a2;
-    width: 100%;
+    width: auto;
     text-align: center;
     border-collapse: collapse;
 }
@@ -41,8 +41,8 @@
     padding: 0px 5px ;
     height: 38px;
     border: 1px solid #b3b3b3;
+    white-space: nowrap;
 }
-
 
 .table thead tr{
     background-color: rgb(183, 143, 183);

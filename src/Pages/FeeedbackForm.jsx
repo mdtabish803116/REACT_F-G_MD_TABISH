@@ -48,8 +48,9 @@ function FeeedbackForm() {
         setMobileError(false)
         setEmailError(false)
 
-
-        if (!validateEmail(customerEmail)){
+        if (!validateName(customerName)) {
+            alert("Name should not be only number")
+        }else if (!validateEmail(customerEmail)){
           alert("Please Enter valid email")
         }else if(!validatePhoneNumber(customerPhone)){
           alert("Please Enter valid Phone number")
@@ -59,6 +60,9 @@ function FeeedbackForm() {
             customerPhone,
             customerEmail,
             serviceInput,
+            claeanInput,
+            beverageInput,
+            experienceInput
           }
           let customerData = JSON.parse(localStorage.getItem("customerData")) || []
           localStorage.setItem("customerData" , JSON.stringify([...customerData , payload]))
@@ -78,6 +82,16 @@ function FeeedbackForm() {
       return phoneRegex.test(phoneNumber);
     }
 
+    function validateName(name) {
+      if (!name.trim()) {
+          return false;
+      }
+      if (/^\d+$/.test(name)) {
+          return false;
+      }
+  
+      return true;
+  }
 
   return (
     <div className = "feedbackContainer">
@@ -108,12 +122,12 @@ function FeeedbackForm() {
                                </div>
                                <div className='rightFormBox'>
                                    <div style = {{display:"flex", flexDirection:"column"}}>
-                                         <label>Customer Name<span style={{color:"red"}}>*</span></label>
+                                         <label>Customer Email<span style={{color:"red"}}>*</span></label>
                                          <input type= "text" placeholder="Eg. abc@gmail.com" style = {{marginTop:"10px"}} onChange={(e)=> setcustomerEmail(e.target.value)}></input>
                                     </div>
                                     {emailError && <ErrorContainer />}
                                     <InputSingleCheck props = {{title:"Please rate the quality of your beverage.",selectedInput:setBeverageInput,top:"100px"}}/>
-                                    <InputSingleCheck props = {{title:"Please Rate your overall dinning experience. ",selectedInput:setExperienceInput}}/>
+                                    <InputSingleCheck props = {{title:"Please Rate your overall dinning experience.",selectedInput:setExperienceInput}}/>
                                      <div></div>
                                </div>
                          </div>

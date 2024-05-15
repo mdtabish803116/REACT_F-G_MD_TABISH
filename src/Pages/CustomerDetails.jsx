@@ -14,7 +14,7 @@ function CustomerDetails({props}) {
                       style={{borderRadius:"5px",border:"none",padding:"10px 15px",textDecoration:"none",
                       color:"white",backgroundColor:"green", fontSize:"0.9rem", marginRight:"20px"}} >Add New</Link>
         </div>
-        <div>
+        <div style ={{overflowX:"auto"}}>
            <table className="table">
                  <thead>
                         <tr>
@@ -29,7 +29,9 @@ function CustomerDetails({props}) {
                              <th>Email</th>
                              <th>Phone</th>
                              <th>Please Rate the quality of service you received from your host</th>
-                             <th>Please</th>
+                             <th>Was our restaurant clean?</th>
+                             <th>Please rate the quality of your beverage.</th>
+                             <th>Please Rate your overall dinning experience.</th>
                         </tr>
                  </thead>
                  <tbody>
@@ -48,7 +50,9 @@ function CustomerDetails({props}) {
                           <td>{item.customerPhone}</td>
                           <td>{item.customerEmail}</td>
                           <td>{item.serviceInput}</td>
-                          <td></td>
+                          <td>{item.claeanInput}</td>
+                          <td>{item.beverageInput}</td>
+                          <td>{item.experienceInput}</td>
                      </tr>
                       ))
                       }
